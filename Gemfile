@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 
+#Use annotate to add schema description and routes description automatically
+gem 'annotate'
+#Use friendly_id gem to slug the url
+gem 'friendly_id', '~> 5.1.0'
 #Use haml for views instead of erb
-gem 'haml'
+gem 'haml-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
@@ -45,4 +49,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
