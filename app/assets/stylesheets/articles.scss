@@ -1,3 +1,39 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#error_explanation {
+  @extend .alert, .alert-danger;
+}
+
+.mytable {
+  @extend .table, .table-striped, .table-responsive, .table-hover, .table-condensed;
+  margin: 10px;
+  th{
+    @extend .lead;
+  }
+}
+
+.mysubmit {
+  @extend .btn, .btn-primary, .btn-lg;
+  margin: 10px;
+}
+
+.article {
+  @extend .text-justify;
+  margin: 5px;
+  .heading{
+    @extend .text-capitalize;
+  }
+  .body{
+    margin: 5px;
+  }
+}
+
+form {
+  margin: 20px;
+}
+
+strong {
+  @extend .lead;
+}

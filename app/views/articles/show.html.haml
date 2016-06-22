@@ -1,10 +1,9 @@
-%p
-  %strong Title:
-  = @article.title
+.article
+  %h1.heading
+    = @article.title
 
-%p
-  %strong Text:
-  = @article.text
+  %p.body
+    = @article.text
 
 %h2 Comments
 = render @article.comments
