@@ -10,7 +10,9 @@
   @extend .table, .table-striped, .table-responsive, .table-hover, .table-condensed;
   margin: 10px;
   th{
-    @extend .lead;
+    @extend .lead, .text-capitalize;
+  }
+  td {
   }
 }
 
@@ -36,4 +38,8 @@ form {
 
 strong {
   @extend .lead;
+}
+
+span {
+  margin: 10px;
 }
