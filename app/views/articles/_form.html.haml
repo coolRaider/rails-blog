@@ -1,12 +1,12 @@
-= form_for @article do |f|
-  - if @article.errors.any?
+= form_for article do |f|
+  - if article.errors.any?
     #error_explanation.alert
       %button.close{ "data-dismiss" => "alert"} x
       %h2
-        = pluralize(@article.errors.count, "error")
+        = pluralize(article.errors.count, "error")
         prohibited this article from being saved:
       %ul
-        - @article.errors.full_messages.each do |msg|
+        - article.errors.full_messages.each do |msg|
           %li= msg
 
   .form-group
