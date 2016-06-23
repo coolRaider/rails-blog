@@ -10,6 +10,11 @@
   @extend .navbar, .navbar-default, .navbar-fixed-top;
 }
 
+.navbar-brand{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .alert-alert{
   @extend .alert, .alert-danger;
 }
@@ -19,7 +24,7 @@
 }
 
 body{
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 .my-container-fluid {
