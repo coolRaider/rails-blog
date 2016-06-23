@@ -11,6 +11,6 @@
 = render @article.comments
 
 %h2 Add a comment:
-= render 'comments/form'
+= render 'comments/form', :article => @article
 
 = link_to 'Back', articles_path
