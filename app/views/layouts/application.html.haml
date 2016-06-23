@@ -12,7 +12,8 @@
         .nav-item= link_to image_tag("logo_resized.png", :alt => "home") , root_path, :class => "navbar-brand"
     
       %ul.nav.navbar-nav
-        %li.nav-item= link_to "Profile", edit_user_registration_path, :class => "nav-link"
+        - if user_signed_in?
+          %li.nav-item= link_to "Profile", edit_user_registration_path, :class => "nav-link"
     
       .nav.navbar-nav.navbar-right
         .container-fluid
