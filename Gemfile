@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#Use devise to implement user authentication, sign in, etc.
+gem 'devise'
 #Use bootstrap and sass for styling and CSS preprocessing
 gem 'bootstrap-sass', '~> 3.3.6'
 #Use annotate to add schema description and routes description automatically

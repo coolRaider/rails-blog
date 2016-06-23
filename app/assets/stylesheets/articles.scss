@@ -6,6 +6,19 @@
   @extend .alert, .alert-danger;
 }
 
+.alert-alert{
+  @extend .alert, .alert-danger;
+}
+
+.alert-notice{
+  @extend .alert, .alert-success;
+}
+
+.container-fluid {
+  @extend .container-fluid;
+  padding: 2%;
+}
+
 .mytable {
   @extend .table, .table-striped, .table-responsive, .table-hover, .table-condensed;
   margin: 10px;
