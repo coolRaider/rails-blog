@@ -1,9 +1,5 @@
 %p
-  %strong Commenter:
-  = comment.commenter
-
-%p
-  %strong Comment:
-  = comment.body
-
+  %blockquote.comment
+    %em= comment.body
+    %footer= comment.commenter
 %p= link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: {confirm: 'Are you sure?'}

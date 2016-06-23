@@ -2,11 +2,11 @@
 
 = link_to 'New article', new_article_path
 
-%table
+%table.mytable
   %tr
     %th Title
     %th Text
-  %tr
+    %th{:colspan => 3} Action
 
   - @articles.each do |article|
     %tr
