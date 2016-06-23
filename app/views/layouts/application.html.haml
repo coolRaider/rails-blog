@@ -6,7 +6,8 @@
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 %body.container-fluid
-  = link_to 'Logout', destroy_user_session_path, method: :delete
+  - if user_signed_in?
+    = link_to 'Logout', destroy_user_session_path, method: :delete
   - flash.each do |type, msg|
     .alert{:class => "alert-#{type}"}
       = msg
