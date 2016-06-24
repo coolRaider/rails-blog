@@ -1,5 +1,5 @@
 %p
   %blockquote.comment
     %em= comment.body
-    %footer= comment.commenter.concat " commented at ".concat comment.updated_at.to_s
+    %footer= "#{ comment.commenter } commented at #{ comment.updated_at.to_s }"
 %p= link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: {confirm: 'Are you sure?'}
