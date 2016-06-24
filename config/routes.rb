@@ -16,6 +16,9 @@
 #                          PATCH  /users(.:format)                             devise/registrations#update
 #                          PUT    /users(.:format)                             devise/registrations#update
 #                          DELETE /users(.:format)                             devise/registrations#destroy
+#        user_confirmation POST   /users/confirmation(.:format)                devise/confirmations#create
+#    new_user_confirmation GET    /users/confirmation/new(.:format)            devise/confirmations#new
+#                          GET    /users/confirmation(.:format)                devise/confirmations#show
 #         article_comments POST   /articles/:article_id/comments(.:format)     comments#create
 #          article_comment DELETE /articles/:article_id/comments/:id(.:format) comments#destroy
 #                 articles GET    /articles(.:format)                          articles#index
