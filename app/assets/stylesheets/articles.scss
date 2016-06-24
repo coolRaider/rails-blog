@@ -6,6 +6,15 @@
   @extend .alert, .alert-danger;
 }
 
+.my-nav-bar{
+  @extend .navbar, .navbar-default, .navbar-fixed-top;
+}
+
+.navbar-brand{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .alert-alert{
   @extend .alert, .alert-danger;
 }
@@ -14,14 +23,17 @@
   @extend .alert, .alert-success;
 }
 
-.container-fluid {
-  @extend .container-fluid;
-  padding: 2%;
+body{
+  padding-top: 50px;
 }
 
-.mytable {
+.my-container-fluid {
+  @extend .container-fluid;
+  padding: 1%;
+}
+
+.my-table {
   @extend .table, .table-striped, .table-responsive, .table-hover, .table-condensed;
-  margin: 10px;
   th{
     @extend .lead, .text-capitalize;
   }
@@ -29,30 +41,22 @@
   }
 }
 
-.mysubmit {
-  @extend .btn, .btn-primary, .btn-lg;
-  margin: 10px;
+.my-form {
+  padding: 1%;
+  border: 1px solid gray;
 }
+
+.my-submit {
+  @extend .btn, .btn-primary, .btn-lg;
+}
+
 
 .article {
   @extend .text-justify;
-  margin: 5px;
   .heading{
     @extend .text-capitalize;
   }
-  .body{
-    margin: 5px;
+  .body{ 
+    @extend .my-form;
   }
-}
-
-form {
-  margin: 20px;
-}
-
-strong {
-  @extend .lead;
-}
-
-span {
-  margin: 10px;
 }

@@ -1,11 +1,14 @@
 .article
   %h1.heading
     = @article.title
+  %p.small= "last updated: #{ @article.updated_at.to_s }"
 
   %p.body
     = @article.text
 
-%span= link_to 'Edit', edit_article_path(@article)
+= link_to 'Edit', edit_article_path(@article)
+
+%br
 
 %h2 Comments
 = render @article.comments

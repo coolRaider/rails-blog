@@ -5,11 +5,25 @@
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
-%body.container-fluid
-  - if user_signed_in?
-    = link_to 'Logout', destroy_user_session_path, method: :delete
-  - flash.each do |type, msg|
-    .alert{:class => "alert-#{type}"}
-      = msg
-      %button.close{ "data-dismiss" => "alert"} x
-  = yield
+%body
+  %nav.my-nav-bar
+    .container-fluid
+      .navbar-header
+        .nav-item= link_to image_tag("logo_resized.png", :alt => "home") , root_path, :class => "navbar-brand"
+    
+      %ul.nav.navbar-nav
+        - if user_signed_in?
+          %li.nav-item= link_to "Profile", edit_user_registration_path, :class => "nav-link"
+    
+      .nav.navbar-nav.navbar-right
+        .container-fluid
+          - if user_signed_in?
+            %p.navbar-text.small=  "Signed in as #{ current_user.email }, last login at #{ current_user.last_sign_in_at.to_s }"
+            = link_to 'Logout', destroy_user_session_path, method: :delete, :class => "btn btn-default navbar-btn"
+  
+  .my-container-fluid
+    - flash.each do |type, msg|
+      .alert{:class => "alert-#{type}"}
+        = msg
+        %button.close{ "data-dismiss" => "alert"} x
+    = yield
