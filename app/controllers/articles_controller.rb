@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:index,:show, :new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :new, :edit, :create, :update, :destroy]
 
   def index
     @articles = Article.all
@@ -45,6 +45,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title,:text)
+      params.require(:article).permit(:title, :text, :tag_list)
     end
 end
