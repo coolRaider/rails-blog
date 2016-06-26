@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+# Use paperclip to add a banner image for the blog post
+gem "paperclip", "~> 4.3"
 #Use devise to implement user authentication, sign in, etc.
 gem 'devise'
 #Use bootstrap and sass for styling and CSS preprocessing
