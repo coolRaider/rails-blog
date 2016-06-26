@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use ransack to add search by title and tag on navbar
+gem 'ransack'
 # Use to add tags to the article
 gem 'acts-as-taggable-on', '~> 3.4'
 #Use devise to implement user authentication, sign in, etc.
