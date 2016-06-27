@@ -6,7 +6,8 @@ class ArticlesController < ApplicationController
     @articles = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 4)
     respond_to do |format|
       format.html {render :index}
-      format.json {render json: @articles}
+      format.js {}
+      format.json {render json: {:articles => @articles}}
     end
   end
 
@@ -25,6 +26,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
+      flash[:success] = "article created successfully."
       redirect_to @article
     else
       render 'new'
@@ -35,6 +37,7 @@ class ArticlesController < ApplicationController
     @article = Article.friendly.find(params[:id])
 
     if @article.update(article_params)
+      flash[:success] = "article updated successfully."
       redirect_to @article
     else
       render 'edit'
@@ -44,12 +47,8 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.friendly.find(params[:id])
     @article.destroy
-
+    flash[:success] = "article destroyed successfully."
     redirect_to articles_path
-  end
-
-  def search
-    index
   end
 
   private
