@@ -14,7 +14,7 @@
       %ul.nav.navbar-nav
         - if user_signed_in?
           %li.nav-item= link_to "Profile", edit_user_registration_path, :class => "nav-link"
-          = search_form_for @q, :url => search_articles_url, html: {method: :post}, :class => "navbar-form navbar-left", :role => :search do |f|
+          = search_form_for @q, :url => search_articles_url, html: {method: :get}, :class => "navbar-form navbar-left", :role => :search do |f|
             .input-group
               = f.search_field :title_cont, :class => "form-control"
               .input-group-btn
