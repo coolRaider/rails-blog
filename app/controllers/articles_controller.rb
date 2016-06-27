@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:index,:show, :new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :new, :edit, :create, :update, :destroy]
 
   def index
-    @articles = Article.all
+    @q = Article.ransack(params[:q])
+    @articles = @q.result(distinct: true)
   end
 
   def show
@@ -43,8 +44,13 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+  def search
+    index
+    render :index
+  end
+
   private
     def article_params
-      params.require(:article).permit(:title,:text)
+      params.require(:article).permit(:title, :text, :tag_list)
     end
 end

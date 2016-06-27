@@ -35,7 +35,7 @@ body{
 .my-table {
   @extend .table, .table-striped, .table-responsive, .table-hover, .table-condensed;
   th{
-    @extend .lead, .text-capitalize;
+    @extend .text-capitalize;
   }
   td {
   }

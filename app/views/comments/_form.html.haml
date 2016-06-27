@@ -3,12 +3,10 @@
     .form-group
     %p
       = f.label :commenter
-      %br
       = f.text_field :commenter, :class => "form-control input-sm"
     .form-group
     %p
       = f.label :body
-      %br
       = f.text_area :body, :class => "form-control input-sm", :rows => 3
 
     %p= f.submit nil, :class => "my-submit"
