@@ -4,6 +4,10 @@ class ArticlesController < ApplicationController
   def index
     @q = Article.ransack(params[:q])
     @articles = @q.result(distinct: true)
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @articles}
+    end
   end
 
   def show
@@ -46,7 +50,6 @@ class ArticlesController < ApplicationController
 
   def search
     index
-    render :index
   end
 
   private
