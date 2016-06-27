@@ -1,5 +1,6 @@
 %table.my-table
   %tr
+    %th
     %th= sort_link @q, :title
     %th Text
     %th= sort_link @q, :created_at, default_order: :desc
@@ -8,6 +9,7 @@
 
   - articles.each do |article|
     %tr
+      %td= image_tag(article.banner.url(:thumb), class: 'img-rounded img-fluid media-object center-block')
       %td= article.title
       %td= article.text
       %td= article.created_at
@@ -15,3 +17,5 @@
       %td= link_to 'Show', article_path(article)
       %td= link_to 'Edit', edit_article_path(article)
       %td= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}
+
+.text-center=will_paginate articles

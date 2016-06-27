@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: true)
+    @articles = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 4)
   end
 
   def show
@@ -51,6 +51,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :text, :tag_list)
+      params.require(:article).permit(:title, :text, :tag_list, :banner)
     end
 end
