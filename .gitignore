@@ -17,4 +17,5 @@
 /tmp
 
 /config/secrets.yml
-
+/public/system/*
+.rake_tasks~

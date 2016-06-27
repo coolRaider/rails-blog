@@ -1,16 +1,22 @@
 source 'https://rubygems.org'
 
+# Use ransack to add search by title and tag on navbar
+gem 'ransack'
 # Use to add tags to the article
 gem 'acts-as-taggable-on', '~> 3.4'
-#Use devise to implement user authentication, sign in, etc.
+# Use to paginate the index page
+gem 'will_paginate', '~> 3.1.0'
+# Use paperclip to add a banner image for the blog post
+gem "paperclip", "~> 4.3"
+# Use devise to implement user authentication, sign in, etc.
 gem 'devise'
-#Use bootstrap and sass for styling and CSS preprocessing
+# Use bootstrap and sass for styling and CSS preprocessing
 gem 'bootstrap-sass', '~> 3.3.6'
-#Use annotate to add schema description and routes description automatically
+# Use annotate to add schema description and routes description automatically
 gem 'annotate'
-#Use friendly_id gem to slug the url
+# Use friendly_id gem to slug the url
 gem 'friendly_id', '~> 5.1.0'
-#Use haml for views instead of erb
+# Use haml for views instead of erb
 gem 'haml-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

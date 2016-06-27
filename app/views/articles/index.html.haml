@@ -1,4 +1,14 @@
 %h1 Articles List:
+.row
+  .col-sm-8.col-md-4.col-lg-3
+    = search_form_for @q, :url => search_articles_url, html: {method: :get},
+     :class => "form", :role => :search do |f|
+      .form-group
+        .input-group
+          = f.search_field :title_cont, :class => "form-control", :placeholder => "search title"
+          .input-group-btn
+            = button_tag(type: "submit", class: "btn btn-default") do
+              %i.glyphicon.glyphicon-search
 
 = link_to 'New article', new_article_path
 
