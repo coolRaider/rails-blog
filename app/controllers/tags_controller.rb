@@ -1,6 +1,11 @@
 class TagsController < ApplicationController
   def index
     @tags = ActsAsTaggableOn::Tag.all
+    respond_to do |format|
+      format.html {render :index}
+      format.js {}
+      format.json {render json: @tags}
+    end
   end
 
   def show
