@@ -1,4 +1,5 @@
 .article
+  = image_tag(@article.banner.url(:big), class: 'img-rounded img-fluid media-object center-block')
   %h1.heading
     = @article.title
   %p.small= "last updated: #{ @article.updated_at.to_s }"

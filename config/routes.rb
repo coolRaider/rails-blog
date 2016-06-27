@@ -1,8 +1,6 @@
 # == Route Map
 #
 #                   Prefix Verb     URI Pattern                                  Controller#Action
-#               tags_index GET      /tags/index(.:format)                        tags#index
-#                tags_show GET      /tags/show(.:format)                         tags#show
 #         new_user_session GET      /users/sign_in(.:format)                     devise/sessions#new
 #             user_session POST     /users/sign_in(.:format)                     devise/sessions#create
 #     destroy_user_session DELETE   /users/sign_out(.:format)                    devise/sessions#destroy
@@ -38,10 +36,6 @@
 #
 
 Rails.application.routes.draw do
-
-  get 'tags/index'
-
-  get 'tags/show'
 
   devise_for :users
   resources :articles do
