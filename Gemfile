@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 # Use to paginate the index page
 gem 'will_paginate', '~> 3.1.0'
+# Use paperclip to add a banner image for the blog post
+gem "paperclip", "~> 4.3"
 # Use devise to implement user authentication, sign in, etc.
 gem 'devise'
 # Use bootstrap and sass for styling and CSS preprocessing

@@ -4,12 +4,14 @@
 
 %table.my-table
   %tr
+    %th
     %th Title
     %th Text
     %th{:colspan => 3} Action
 
   - @articles.each do |article|
     %tr
+      %td= image_tag(article.banner.url(:thumb), class: 'img-rounded img-fluid media-object center-block')
       %td= article.title
       %td= article.text
       %td= link_to 'Show', article_path(article)

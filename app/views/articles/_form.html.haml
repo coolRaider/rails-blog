@@ -1,5 +1,5 @@
 .my-form
-  = form_for article do |f|
+  = form_for article, :html => { :multipart => true } do |f|
     - if article.errors.any?
       #error_explanation.alert
         %button.close{ "data-dismiss" => "alert"} x
@@ -13,13 +13,15 @@
     .form-group
       %p
         = f.label :title
-        %br
-        = f.text_field :title , :class => "form-control input-lg"
+        = f.text_field :title, :class => "form-control input-lg"
+    .form-group
+      %p
+        = f.label :banner
+        = f.file_field :banner
     .form-group
       %p
         = f.label :text
-        %br
         = f.text_area :text, :class => "form-control input-sm", :rows => "8"
 
-      %p
-        = f.submit nil, :class => "my-submit"
+    %p
+      = f.submit nil, :class => "my-submit"

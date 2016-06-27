@@ -19,7 +19,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  #gmail settings
+  # Gmail settings
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -29,6 +29,9 @@ Rails.application.configure do
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
   }
+
+  # Path to imagemagick convert utility (path found by which convert command)
+  Paperclip.options[:command_path] = "/usr/bin/"
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
