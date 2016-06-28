@@ -21,7 +21,22 @@ sel = ->
       escapeMarkup: (markup) ->
         markup
 
+onsel = (env) ->
+  alert("searching "+env)
+
 $ ->
   sel()
+  box = $("#tag-select")
+  box.on 'select2:select', (e) ->
+    $.ajax(
+      url: "/tags/"+box.val()[0]
+      dataType: "script"
+    )
+  box.on 'select2:unselect', (e) ->
+    $.ajax(
+      url: "/articles"
+      dataType: "script"
+    )
+
 $(window).resize ->
   sel()
