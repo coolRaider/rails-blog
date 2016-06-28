@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Used to move to mysql2 database
+gem 'mysql2'
 # Use ransack to add search by title and tag on navbar
 gem 'ransack'
 # Use to add tags to the article
