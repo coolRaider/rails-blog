@@ -2,4 +2,5 @@
   %blockquote.comment
     %em= comment.body
     %footer= "#{ comment.commenter } commented at #{ comment.updated_at.to_s }"
-%p= link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: {confirm: 'Are you sure?'}
+- if can? :destroy, comment
+  %p= link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: {confirm: 'Are you sure?'}

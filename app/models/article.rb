@@ -3,13 +3,13 @@
 # Table name: articles
 #
 #  id                  :integer          not null, primary key
-#  title               :string
-#  text                :text
+#  title               :string(255)
+#  text                :text(65535)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  slug                :string
-#  banner_file_name    :string
-#  banner_content_type :string
+#  slug                :string(255)
+#  banner_file_name    :string(255)
+#  banner_content_type :string(255)
 #  banner_file_size    :integer
 #  banner_updated_at   :datetime
 #

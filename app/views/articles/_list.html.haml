@@ -1,11 +1,11 @@
 %table.my-table
   %tr
     %th
-    %th= sort_link @q, :title
+    %th= sort_link @q, :title, {}, { :remote => true }
     %th Text
-    %th= sort_link @q, :created_at, default_order: :desc
-    %th= sort_link @q, :updated_at, default_order: :desc
-    %th{:colspan => 3} Action
+    %th= sort_link @q, :created_at, { default_order: :desc }, { :remote => true }
+    %th= sort_link @q, :updated_at, { default_order: :desc }, { :remote => true }
+    %th{ :colspan => 3 } Action
 
   - articles.each do |article|
     %tr
@@ -15,7 +15,9 @@
       %td= article.created_at
       %td= article.updated_at
       %td= link_to 'Show', article_path(article)
-      %td= link_to 'Edit', edit_article_path(article)
-      %td= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}
-
-.text-center=will_paginate articles
+      %td
+        - if can? :edit, article
+          = link_to 'Edit', edit_article_path(article)
+      %td
+        - if can? :destroy, article
+          = link_to 'Destroy', article_path(article), method: :d
