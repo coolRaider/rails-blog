@@ -39,9 +39,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :articles do
-    collection do
-      match 'search' => 'articles#search', via: [:get, :post], as: :search
-    end
     resources :comments, :only => [:create, :destroy]
   end
   resources :tags, :only => [:index, :show]
