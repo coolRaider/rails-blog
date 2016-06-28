@@ -21,10 +21,8 @@ sel = ->
       escapeMarkup: (markup) ->
         markup
 
-onsel = (env) ->
-  alert("searching "+env)
-
 $ ->
+  $('.pagination a').attr('data-remote', 'true')
   sel()
   box = $("#tag-select")
   box.on 'select2:select', (e) ->
