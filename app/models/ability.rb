@@ -31,14 +31,22 @@ class Ability
     if user.valid?
       if user.admin?
         can :manage, :all
-      elsif user.author?
+      elsif user.reader? or user.author?
         can :read, :all
         can :create, Comment
-        can :destroy, Comment 
-      elsif user.reader?
-        can :read, :all
-        can :create, Comment
-        can :destroy, Comment
+        can :destroy, Comment do |comment|
+          comment.user_id == user.id
+        end 
+      end
+      
+      if user.author?
+        can :create, Article
+        can [:update, :destroy], Article do |article|
+          article.user_id == user.id
+        end
+        can :destroy, Comment do |comment|
+          comment.article.user_id == user.id
+        end
       end
     end
 

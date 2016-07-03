@@ -22,6 +22,7 @@ class Article < ActiveRecord::Base
     :styles => { :big => ["600x200>", :png], :thumb => ["64x64>", :png] },
     :default_url => "/system/:style/missing.png"
   has_many :comments, dependent: :destroy
+  belongs_to :user
   validates :title, presence: true, length: { minimum: 5 }
   validates_attachment :banner, :content_type => {:content_type => /\Aimage/},
     :file_name => {:matches => [/png\Z/, /jpe?g\Z/]},

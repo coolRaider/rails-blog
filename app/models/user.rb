@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  
   include RoleModel
 
   roles :admin, :author, :reader 
