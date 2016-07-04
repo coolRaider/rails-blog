@@ -3,7 +3,11 @@
   %h1.heading
     = @article.title
   %p.small= "last updated: #{ @article.updated_at.to_s }"
-
+  .small.text-uppercase
+    %span.eta
+    (
+    %span.word-count
+    words)
   %p.body
     = @article.text
 

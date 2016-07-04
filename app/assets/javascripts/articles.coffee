@@ -3,3 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
   $('.pagination a').attr('data-remote', 'true')
+  $article = $('.article')
+  $articleText = $article.find('.body')
+  $articleText.readingTime(
+      readingTimeTarget: $article.find('.eta')
+      wordCountTarget: $article.find('.word-count')
+      wordsPerMinute: 100
+    )
