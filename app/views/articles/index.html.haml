@@ -16,4 +16,4 @@
 - if can? :create, Article
   = link_to 'New article', new_article_path
 
-#results= render "articles/list", :articles => @articles
+#results= render "articles/list", :articles => @articles, :q => @q

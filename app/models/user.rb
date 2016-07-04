@@ -31,10 +31,10 @@ class User < ActiveRecord::Base
   before_create :set_role
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
-  
+
   include RoleModel
 
-  roles :admin, :author, :reader 
+  roles :admin, :author, :reader
 
   def set_role
     self.roles = [:reader]
