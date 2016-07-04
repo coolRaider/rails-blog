@@ -28,10 +28,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  before_create :set_role
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
   
   include RoleModel
 
   roles :admin, :author, :reader 
+
+  def set_role
+    self.roles = [:reader]
+  end
 end
