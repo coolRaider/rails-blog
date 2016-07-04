@@ -42,6 +42,10 @@ body{
     @extend .text-capitalize;
   }
   td {
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
@@ -54,6 +58,9 @@ body{
   @extend .btn, .btn-primary, .btn-lg;
 }
 
+.my-button {
+  @extend .btn, .btn-default;
+}
 
 .article {
   @extend .text-justify;

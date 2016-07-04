@@ -21,3 +21,5 @@
       %td
         - if can? :destroy, article
           = link_to 'Destroy', article_path(article), method: :d
+
+.text-center= will_paginate articles
