@@ -23,6 +23,13 @@ sel = ->
 
 $ ->
   $('.pagination a').attr('data-remote', 'true')
+  $article = $('.article')
+  $articleText = $article.find('.body')
+  $articleText.readingTime(
+      readingTimeTarget: $article.find('.eta')
+      wordCountTarget: $article.find('.word-count')
+      wordsPerMinute: 100
+    )
   sel()
   box = $("#tag-select")
   box.on 'select2:select', (e) ->
