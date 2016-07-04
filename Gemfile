@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+# Used to manage different roles :admin, :author, :reader
+gem 'role_model'
+# Used to add authorization across the website
+gem 'cancancan', '~> 1.10'
 # Used to move to mysql2 database
 gem 'mysql2'
 # Use select2 to implement search by tag on index page

@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   def index
     @q = Article.ransack(params[:q])
     @articles = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 4)
+    authorize! :index, @articles
     respond_to do |format|
       format.html {render :index}
       format.js {}
@@ -13,18 +14,22 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.friendly.find(params[:id])
+    authorize! :show, @article
   end
 
   def new
     @article = Article.new
+    authorize! :new, @article
   end
 
   def edit
     @article = Article.friendly.find(params[:id])
+    authorize! :edit, @article
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = Article.create(article_params)
+    authorize! :create, @article
     if @article.save
       flash[:success] = "article created successfully."
       redirect_to @article
@@ -35,7 +40,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.friendly.find(params[:id])
-
+    authorize! :update, @article
     if @article.update(article_params)
       flash[:success] = "article updated successfully."
       redirect_to @article
@@ -46,6 +51,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.friendly.find(params[:id])
+    authorize! :destroy, @article
     @article.destroy
     flash[:success] = "article destroyed successfully."
     redirect_to articles_path
@@ -53,6 +59,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :text, :tag_list, :banner)
+      params.require(:article).permit(:title, :text, :tag_list, :banner).merge(user_id: current_user.id)
     end
 end

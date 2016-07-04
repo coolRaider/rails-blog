@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626075352) do
+ActiveRecord::Schema.define(version: 20160703203146) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",               limit: 255
@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 20160626075352) do
     t.string   "banner_content_type", limit: 255
     t.integer  "banner_file_size",    limit: 4
     t.datetime "banner_updated_at"
+    t.integer  "user_id",             limit: 4
   end
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter",  limit: 255
@@ -33,9 +35,11 @@ ActiveRecord::Schema.define(version: 20160626075352) do
     t.integer  "article_id", limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -87,11 +91,14 @@ ActiveRecord::Schema.define(version: 20160626075352) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email",      limit: 255
+    t.integer  "roles_mask",             limit: 4
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
+  add_foreign_key "comments", "users"
 end

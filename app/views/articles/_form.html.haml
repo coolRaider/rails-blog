@@ -11,20 +11,16 @@
             %li= msg
 
     .form-group
-      %p
-        = f.label :title
-        = f.text_field :title, :class => "form-control input-lg"
+      = f.label :title
+      = f.text_field :title, :class => "form-control input-lg"
     .form-group
-      %p
-        = f.label :banner
-        = f.file_field :banner
+      = f.label :banner
+      = f.file_field :banner
     .form-group
-      %p
-        = f.label :text
-        = f.text_area :text, :class => "form-control input-sm", :rows => "8"
+      = f.label :text
+      = f.text_area :text, :class => "form-control input-sm", :rows => "8"
     .form-group
-      %p
-        = f.label :tags
-        = f.text_field :tag_list, :class => "form-control input-sm"
-    %p
-      = f.submit nil, :class => "my-submit"
+      = f.label :tags
+      = f.text_field :tag_list, :class => "form-control input-sm"
+    
+    = f.submit nil, :class => "my-submit"

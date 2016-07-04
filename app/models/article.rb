@@ -3,13 +3,13 @@
 # Table name: articles
 #
 #  id                  :integer          not null, primary key
-#  title               :string
-#  text                :text
+#  title               :string(255)
+#  text                :text(65535)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  slug                :string
-#  banner_file_name    :string
-#  banner_content_type :string
+#  slug                :string(255)
+#  banner_file_name    :string(255)
+#  banner_content_type :string(255)
 #  banner_file_size    :integer
 #  banner_updated_at   :datetime
 #
@@ -22,6 +22,7 @@ class Article < ActiveRecord::Base
     :styles => { :big => ["600x200>", :png], :thumb => ["64x64>", :png] },
     :default_url => "/system/:style/missing.png"
   has_many :comments, dependent: :destroy
+  belongs_to :user
   validates :title, presence: true, length: { minimum: 5 }
   validates_attachment :banner, :content_type => {:content_type => /\Aimage/},
     :file_name => {:matches => [/png\Z/, /jpe?g\Z/]},

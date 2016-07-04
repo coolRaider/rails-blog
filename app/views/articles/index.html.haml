@@ -13,6 +13,7 @@
     %form.form
       %select#tag-select.form-control{:multiple => "multiple"}
 
-= link_to 'New article', new_article_path
+- if can? :create, Article
+  = link_to 'New article', new_article_path
 
 #results= render "articles/list", :articles => @articles
