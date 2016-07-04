@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 # Used to move to mysql2 database
 gem 'mysql2'
+# Use select2 to implement search by tag on index page
+gem 'select2-rails'
 # Use ransack to add search by title and tag on navbar
 gem 'ransack'
 # Use to add tags to the article
