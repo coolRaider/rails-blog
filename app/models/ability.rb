@@ -36,9 +36,9 @@ class Ability
         can :create, Comment
         can :destroy, Comment do |comment|
           comment.user_id == user.id
-        end 
+        end
       end
-      
+
       if user.author?
         can :create, Article
         can [:update, :destroy], Article do |article|

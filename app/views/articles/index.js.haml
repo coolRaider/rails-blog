@@ -1,4 +1,4 @@
 :plain
-  $('#results').html("#{ j (render partial: 'list', locals: {articles: @articles}) }");
+  $('#results').html("#{ j (render 'articles/list', articles: @articles, q: @q) }");
   $('.pagination a').attr('data-remote', 'true');
   

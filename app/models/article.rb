@@ -12,6 +12,7 @@
 #  banner_content_type :string(255)
 #  banner_file_size    :integer
 #  banner_updated_at   :datetime
+#  user_id             :integer
 #
 
 class Article < ActiveRecord::Base
