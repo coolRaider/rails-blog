@@ -3,34 +3,33 @@
 Rails-Blog
 
 * Main Features:
-1. Authentication and access control using cancancan
-2. User flow with Sign in, Sign up, Edit and Delete profiles
-3. User roles: admin, author, reader
-4. Article creation with image upload
-5. Commenting
-6. Reporting with Flash messages
-7. Reporting last login and update times
-8. Search across articles based on tags or title. Sort results based on article attributes.
-9. Email verification for new accounts and password recovery via gmail smtp config.
+  1. Authentication and access control using cancancan
+  2. User flow with Sign in, Sign up, Edit and Delete profiles
+  3. User roles: admin, author, reader
+  4. Article creation with image upload
+  5. Commenting
+  6. Reporting with Flash messages
+  7. Reporting last login and update times
+  8. Search across articles based on tags or title. Sort results based on article attributes.
+  9. Email verification for new accounts and password recovery via gmail smtp config.  
 
 * Other features:
-1. Ajax update on search, sort and pagination.
-2. Ajax update of suggestion list for tags search.
-3. Approximate reading time for each article.
+  1. Ajax update on search, sort and pagination.
+  2. Ajax update of suggestion list for tags search.
+  3. Approximate reading time for each article.  
 
 * Validation:
-1. On articles creation form
-2. On user email and password creation
+  1. On articles creation form
+  2. On user email and password creation  
 
 * Documentation:
-1. Auto commenting using Annotate on routes and models
-2. Manual comments on gem usage, in gem files
-3. Self documenting code for controllers
+  1. Auto commenting using Annotate on routes and models
+  2. Manual comments on gem usage, in gem files
+  3. Self documenting code for controllers  
 
 * Security enforced:
-1. Any registered user can read all comments and articles. Delete their own comments. (default reader role assignment)
-2. Authors can also create new or edit their own articles. Delete any comment on their own article.
-3. Admin can perform all actions.
+  1. Any registered user can read all comments and articles. Delete their own comments. (default reader role assignment)
+  2. Authors can also create new or edit their own articles. Delete any comment on their own article.
+  3. Admin can perform all actions.  
 
-
-Testing and Deployment not yet covered.
+* Testing and Deployment not yet covered.
